@@ -6,7 +6,14 @@ Status: design exploration. Follows `Attention-Concept-Review.md`, but deliberat
 
 ## 1. Start over: what *is* attention?
 
-The earlier review treated attention as **time**: you look at one panel while the others tick. That's the obvious model, and it has a structural flaw. If time is the scarce resource, the only way to make it scarce is a clock, and a clock pulls the game toward reflexes, which the brief forbids.
+The earlier review treated attention as **time**: you look at one panel while the others tick. That's the obvious model. It isn't wrong, but it isn't the only one, and it hides a decision that should be made deliberately.
+
+A clock makes attention scarce in the most direct way: you can't look at everything before the world moves. It also brings real strengths: tension you can feel, a fantasy that's easy to read, and trailer appeal. Five Nights at Freddy's built a franchise on switching between cameras against a clock. The original concept listed "decisions over reflexes" as a pillar. This brief says to challenge everything, so treat that pillar as a preference to test, not a law. The real distinction isn't *clock versus no clock*. It's what the clock rewards:
+
+- **Speed of judgment.** Papers, Please, Mini Metro and FTL put time pressure on *deciding*. Players can lose because they thought too slowly, and that's still a strategic game.
+- **Speed of execution.** Actions per minute, aiming, and reaction time put pressure on the *hands*. A clock that rewards this turns the game into a dexterity test, whatever the theme.
+
+A clock that pressures judgment is a legitimate and possibly strongest lever. One that pressures execution is the failure mode to watch for.
 
 In real life, attention isn't one resource. It's at least five, and **each one creates a different game**:
 
@@ -27,7 +34,16 @@ From first principles, a choice about where to attend is interesting only when a
 3. **Attending has value you can estimate but not know.** "Is it worth checking?" must be a judgment call: the *value of information*.
 4. **Neglect is recoverable, but at a rising price.** Instant death makes the choice obvious. No consequence makes it irrelevant.
 
-**Key insight, and a correction to the earlier review:** condition 2 means time pressure is *optional*. A fully turn-based game can make attention scarce through **hidden, evolving information**. This resolves the brief's biggest contradiction: you get "meaningful overload" without "reflexes," because the overload is *epistemic* (too much you don't know), not *temporal* (too little time).
+**Key insight, and a correction to the earlier review:** condition 2 means a clock is *one* lever, not the only one. **Hidden, evolving information** makes attention scarce even in a fully turn-based game. That's *epistemic* overload: too much you don't know. A clock creates *temporal* overload: too little time. The two levers are independent and can be combined. So the time model should be a dial the prototype tests, not a premise the design assumes.
+
+| Time model | What makes attention scarce | Strength | Main risk |
+|---|---|---|---|
+| **Turn-based** | Hidden, evolving state only | Accessible, mobile-friendly, deep, novel | Can feel calm or solvable; weaker felt overload |
+| **Shot clock per turn** | Hidden state plus limited thinking time | Pressure on judgment, no dexterity needed | Turns feel rushed without being harder to solve |
+| **Real time with pause** (FTL) | Simultaneous events; pause sets the pace | Felt urgency, but the player controls it | Expert play becomes pause-scumming |
+| **Continuous real time** (FNAF, Mini Metro) | Everything above, plus the inability to stop | Strongest tension and stream and trailer appeal | Execution speed creeps in; excludes some players |
+
+A framework that works under several of these is more valuable, because playtests can choose the time model instead of the design locking it in.
 
 The five frameworks below each build a whole game around a different scarcity.
 
@@ -41,7 +57,7 @@ The five frameworks below each build a whole game around a different scarcity.
 
 **Fantasy:** A lighthouse keeper on a stormy coast, a night-watch over a city, or a mission controller with one telescope.
 
-**How it plays (turn-based):**
+**How it plays (turn-based or timed, with the same rules):**
 - The map has 6 to 8 **sites** (a ship drifting toward rocks, a fire in the docks, smugglers in a cove, a stranded fisherman). Each site has a **hidden state** that evolves every turn by known rules plus randomness.
 - Each turn you get **1 Look** and **2 Acts**.
   - **Look** reveals one site's exact state (and adjacent sites at low fidelity).
@@ -56,9 +72,9 @@ The five frameworks below each build a whole game around a different scarcity.
 | Pros | Cons |
 |---|---|
 | Purest expression of attention. Looking is the main verb | Can feel passive ("I spent my turn just looking") |
-| Fully turn-based, so no reflexes, very accessible, and mobile-friendly | Hidden stochastic rules must be learnable, or failure feels random |
+| Works turn-based (accessible, mobile-friendly) or on a clock (urgent, streamable) with the same rules | Hidden stochastic rules must be learnable, or failure feels random |
 | One core rule; scales by adding site types, not systems | Risk of a trivial heuristic ("look at the stalest site") dominating |
-| Novel: very few games make *observation* the scarce resource | Harder to show in a trailer (the tension is in your head) |
+| Timed observation games are proven (FNAF camera switching); the turn-based, strategic version is rare | Turn-based mode is harder to show in a trailer (the tension is in your head) |
 | Reveals skill clearly: experts build mental models of the unseen | Needs strong UI for uncertainty (bands, ghosts, "last seen") |
 
 ---
@@ -80,7 +96,7 @@ The five frameworks below each build a whole game around a different scarcity.
 | Pros | Cons |
 |---|---|
 | Strong power fantasy; delegation turns overload into mastery | Agent AI is expensive and hard to make readable |
-| Emergent stories ("Pip burned the soup again") give it streamability | Pulls toward real time and Overcooked-style frantic play |
+| Emergent stories ("Pip burned the soup again") give it streamability | Fits real time best, but moving the conductor around can make execution speed matter more than judgment (the Overcooked trap) |
 | Natural progression: better crew means more freedom | "Managing people" can feel like a job |
 | Clear visual: you can *see* the conductor move | Failure attribution is blurry (was it me or the agent?) |
 
@@ -104,7 +120,7 @@ The five frameworks below each build a whole game around a different scarcity.
 | Extremely deep, well-studied decision space | Needs an opponent (human or good AI) to come alive |
 | Short, tight rounds; strong competitive and PvP potential | Abstract; weak "overload" feeling, more poker than juggling |
 | Prototype with paper tokens in an afternoon | Simultaneous blind bidding is a known genre (much less novel) |
-| No reflexes at all | Solo play against AI often feels hollow |
+| Pure reads and bluffs; execution speed never matters | Solo play against AI often feels hollow |
 
 ---
 
@@ -147,7 +163,7 @@ The five frameworks below each build a whole game around a different scarcity.
 
 | Pros | Cons |
 |---|---|
-| Zero reflexes; ideal for mobile and short sessions | Most of the tension sits in planning, so resolution can feel like spectating |
+| No execution speed involved; ideal for mobile and short sessions | Most of the tension sits in planning, so resolution can feel like spectating |
 | Clear failure attribution: you can see exactly what you missed | Closer to a scheduling puzzle than to "managing attention live" |
 | Into the Breach-style telegraphing is proven and loved | Risk of being "solved" if events are too predictable |
 | Easy to build and to balance with simulations | Least "overload": the brief's core fantasy is weakest here |
@@ -161,15 +177,18 @@ Scores are 1 to 5, based on judgment, not data.
 | Criterion | A. Lighthouse | B. Conductor | C. General | D. Notebook | E. Planner |
 |---|---|---|---|---|---|
 | Attention *is* the core verb | **5** | 4 | 3 | 4 | 3 |
-| Decisions over reflexes | **5** | 2 | **5** | 4 | **5** |
+| Rewards judgment more than execution speed | **5** | 3 | **5** | 4 | **5** |
 | Feeling of meaningful overload | 4 | **5** | 2 | 3 | 2 |
-| Novelty | **5** | 3 | 2 | 4 | 3 |
+| Novelty | 4 | 3 | 2 | **4** | 3 |
 | Solo-play strength | **5** | **5** | 2 | 4 | 4 |
 | Readability, trailer appeal | 3 | **5** | 3 | 2 | 3 |
 | Content cost (5 = cheap) | 4 | 2 | **5** | 2 | 4 |
 | One-week prototype ease | 4 | 2 | **5** | 3 | 4 |
 | Risk of a trivial dominant strategy (5 = low risk) | 3 | 3 | 4 | 3 | 2 |
-| **Total** | **38** | 31 | 31 | 29 | 30 |
+| Works both turn-based and on a clock | **5** | 4 | 3 | 3 | 3 |
+| **Total** | **42** | 36 | 34 | 32 | 33 |
+
+The "judgment over execution speed" row replaces the earlier "decisions over reflexes" row. It doesn't penalize time pressure. It only penalizes designs where how fast your hands move outweighs how well you decide. With that change, the Conductor closes some of the gap. It's the strongest runner-up if playtests show a clock is essential.
 
 ---
 
@@ -179,7 +198,7 @@ Scores are 1 to 5, based on judgment, not data.
 
 - the main verb is attending, not acting, so attention isn't a disguised action budget;
 - neglect costs **knowledge**, the defining property of real attention, and not just time or points;
-- it meets all four conditions from §1 without a clock, so the "no reflexes" pillar holds for free;
+- it meets all four conditions from §1 **with or without a clock**, so the time model becomes a playtest decision instead of a design premise. It could even ship as two modes (a calm one and a timed one) using the same rules;
 - skill is legible: an expert's advantage is a better mental model of the unseen, which is exactly the fantasy in the brief ("what deserves attention, what can be ignored").
 
 ### The strongest version is a hybrid
@@ -194,7 +213,7 @@ Explicitly **reject** for now:
 
 - Framework C's opponent model. It's a different game (PvP mind games), not an attention game.
 - Framework D's memory test. Retention can stay *implicit*: players remember what they last saw, and the UI helps.
-- Real-time clocks. Keep an optional "storm mode" timer as a difficulty variant only, never as the default.
+- Deciding the time model on paper. Test the Lighthouse turn-based *and* on a clock in the same week (see §5). The timed version has proven precedent (FNAF) and more trailer appeal. The turn-based version is more novel and more accessible. If the timed version clearly wins, keep it, and consider the Conductor as the natural expansion.
 
 ### What could still kill it
 
@@ -219,8 +238,8 @@ Explicitly **reject** for now:
 | 1 | Design 6 site types, each with a drift rule on an index card: ship (drift 0 to 2 per turn toward the rocks), fire (doubles every 3 turns), smugglers (appear and vanish), stranded fisherman (survives N turns), fog bank (blocks Looks), false bell (signal source). Scoring: rescues minus losses. |
 | 2 | Build the paper kit: a map, hidden trackers behind a GM screen, "last seen" tokens for the player, dice. Self-test 5 nights of 10 turns. |
 | 3 | Write a tiny simulation (a Swift script or spreadsheet) that runs the bots: random, round-robin, stalest-first, expected-value. Tune drift rules until expected-value clearly beats round-robin. |
-| 4 | Play-test with 3 to 4 people, two nights each. The facilitator only records data. |
-| 5 | Add the watcher mechanic and test with 2 to 3 more people. Write up the results and a go/no-go decision. |
+| 4 | Play-test with 3 to 4 people, two nights each: one **turn-based** and one **timed**, with the order alternated. In the timed version, the GM advances the world every ~10 seconds on a metronome; each beat allows one Look and up to two Acts, and unused actions are lost. The facilitator only records data. |
+| 5 | Add the watcher mechanic in whichever time model tested better, and test with 2 to 3 more people. Write up the results and a go/no-go decision, including which time model to carry forward. |
 
 ### What to measure
 
@@ -228,12 +247,14 @@ Explicitly **reject** for now:
 - **Reasons:** after each night, ask "What did you choose not to look at, and why?"
 - **Human versus bots:** experienced players should beat the round-robin bot.
 - **Fun and stress** on a 1 to 7 scale, and whether players ask for another night.
+- **Turn-based versus timed:** compare fun, stress and priority talk. After each timed loss, ask "Did you know what to do but run out of time, or did you choose wrong?" The first answer points to execution pressure; the second points to judgment pressure, which is the kind you want.
 
 ### Kill criteria (decide before testing)
 
 - Round-robin is within 10% of the best play: **redesign the drift rules** once. If it still holds, the framework is shallow.
 - Fewer than half the testers can explain why they looked where they did: **the hidden rules aren't learnable.**
-- Fun is below 5/7 even with watchers: **try Framework E (Planner) next.** It's the closest calm alternative and reuses the same site cards.
+- Timed mode wins on fun, but losses come mostly from "ran out of time": **keep the clock, but slow the beat or add a pause.** Don't drop it.
+- Fun is below 5/7 in both modes even with watchers: **try Framework E (Planner) next.** It's the closest calm alternative and reuses the same site cards. If testers kept asking for *more* urgency, try Framework B (Conductor) instead.
 
 ---
 
@@ -241,8 +262,9 @@ Explicitly **reject** for now:
 
 | Earlier assumption | Now |
 |---|---|
-| Attention is time; a clock makes it scarce | Attention is **observation**; hidden, evolving state makes it scarce |
-| Chess-clock time bank recommended | **Turn-based by default**; timers become an optional difficulty mode |
+| Attention is time; a clock makes it scarce | Attention is **observation**. Hidden, evolving state makes it scarce, with or without a clock |
+| Chess-clock time bank recommended | The time model is an **open dial**: test turn-based and timed side by side with the same rules |
+| "Decisions over reflexes" as a fixed pillar | Pressure on judgment is welcome; only pressure on execution speed is a risk to watch |
 | Several boards, each its own small game | One shared map of **sites** with simple drift rules |
 | Drafting opportunities into slots | Optional; the run's build is **watchers** (what you automate seeing) |
 | A 3-to-4-week SwiftUI greybox for the time-model test | A **1-week paper plus simulation** test comes first |
